@@ -3,8 +3,7 @@
 An iOS app that forecasts auto thefts for any Toronto neighbourhood. Type a postal code
 or a neighbourhood name and the app shows the next 24 months of thefts, how the area
 ranks across the city's 158 neighbourhoods, a risk level, and a suggested patrol plan
-by shift. The forecast runs entirely on the device using a Core ML model trained in the
-MBA 563 notebook; the only network call is Apple's geocoder, used to turn a postal code
+by shift. The forecast runs entirely on the device using a Core ML model; the only network call is Apple's geocoder, used to turn a postal code
 into a location.
 
 ## Screenshots
