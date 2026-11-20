@@ -8,14 +8,18 @@ into a location.
 
 ## Screenshots
 
-These screenshots predate the map and charts added below; rerun the UI test to refresh
-them. They come from the `ForecastFlowUITests` UI test (iPhone 17 Pro Max
-simulator, test passed). The test searches for **M6A 2T9** (Yorkdale Shopping Centre)
-and scrolls through the results.
+These screenshots come from the `ForecastFlowUITests` UI tests (iPhone 17 Pro Max
+simulator, iOS 26.2, both tests passed). The forecast test searches for **M6A 2T9**
+(Yorkdale Shopping Centre) and scrolls through the results; the risk map test opens the
+second tab. Rerun the UI tests to refresh them.
 
-| Summary | Ranks and profile | Chart and patrol plan |
+| Summary | Map and neighbours | Chart |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/1-summary.png" width="250" alt="Forecast summary for Yorkdale-Glen Park: 91 thefts in the last 12 months, 92 forecast for the next 12"> | <img src="docs/screenshots/2-chart.png" width="250" alt="Rank 7 of 158 per resident, risk level very high, and the neighbourhood profile"> | <img src="docs/screenshots/3-patrol-plan.png" width="250" alt="Actual and forecast theft chart followed by the monthly patrol plan split by shift"> |
+| <img src="docs/screenshots/1-summary.png" width="250" alt="Forecast summary for Yorkdale-Glen Park: 91 thefts in the last 12 months, 92 forecast for the next 12, up 1 percent, risk level very high"> | <img src="docs/screenshots/2-map.png" width="250" alt="Risk meter, neighbourhood profile, and a map of Yorkdale-Glen Park with its bordering neighbourhoods shaded by risk"> | <img src="docs/screenshots/3-chart.png" width="250" alt="Comparison with bordering neighbourhoods and the monthly theft chart, actual then forecast"> |
+
+| Patrol plan | Toronto risk map |
+|:---:|:---:|
+| <img src="docs/screenshots/4-patrol-plan.png" width="250" alt="Patrol units by shift as a stacked bar chart above the monthly patrol table"> | <img src="docs/screenshots/5-risk-map.png" width="250" alt="All 158 Toronto neighbourhoods coloured by risk level"> |
 
 ## Key Features
 

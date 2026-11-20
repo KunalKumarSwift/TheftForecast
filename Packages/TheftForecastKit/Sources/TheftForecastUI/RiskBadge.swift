@@ -12,11 +12,13 @@ import TheftForecastInterface
 struct RiskBadge: View {
     let level: RiskLevel
 
+    // A plain HStack, not a Label: inside a Form row, Label picks up list-row icon layout
+    // and made the "Risk level" row hundreds of points tall with empty space under it.
     var body: some View {
-        Label {
-            Text(level.rawValue).fontWeight(.semibold)
-        } icon: {
+        HStack(spacing: 6) {
             Image(systemName: level.symbol).foregroundStyle(level.tint)
+            Text(level.rawValue).fontWeight(.semibold).foregroundStyle(.primary)
         }
+        .accessibilityElement(children: .combine)
     }
 }

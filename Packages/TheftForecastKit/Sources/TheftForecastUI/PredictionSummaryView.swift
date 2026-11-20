@@ -20,9 +20,13 @@ struct PredictionSummaryView: View {
                 Text(prediction.matchDescription).font(.footnote).foregroundStyle(.secondary)
             }
             LabeledContent("Last 12 months", value: "\(prediction.lastTwelveMonths) thefts")
-            LabeledContent("Next 12 months (forecast)") {
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text("\(whole(prediction.nextTwelveMonths)) thefts")
+            // The trend sits under the title, not beside the value: side by side, the title and
+            // the wide trend text both wrapped on phone widths and left a tall, mostly empty row.
+            LabeledContent {
+                Text("\(whole(prediction.nextTwelveMonths)) thefts")
+            } label: {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Next 12 months (forecast)")
                     TrendLabel(previous: Double(prediction.lastTwelveMonths), next: prediction.nextTwelveMonths)
                 }
             }
@@ -57,12 +61,11 @@ private struct TrendLabel: View {
     var body: some View {
         if previous > 0 {
             let change: Double = (next - previous) / previous
-            Label(
-                "\(change.formatted(.percent.precision(.fractionLength(0)).sign(strategy: .always()))) vs last 12 months",
-                systemImage: abs(change) < 0.005 ? "arrow.right" : (change > 0 ? "arrow.up.right" : "arrow.down.right")
-            )
-            .font(.caption)
-            .foregroundStyle(.secondary)
+            // Text with an inline image, not a Label: in a Form row a Label put the arrow on its own line.
+            let symbol: String = abs(change) < 0.005 ? "arrow.right" : (change > 0 ? "arrow.up.right" : "arrow.down.right")
+            Text("\(Image(systemName: symbol)) \(change.formatted(.percent.precision(.fractionLength(0)).sign(strategy: .always()))) vs last 12 months")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
     }
 }
