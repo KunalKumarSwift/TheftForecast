@@ -17,7 +17,7 @@ struct TheftForecastApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ForecastScreen(forecaster: forecaster)
+            TheftForecastTabs(forecaster: forecaster)
         }
     }
 }

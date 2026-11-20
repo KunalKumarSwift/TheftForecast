@@ -17,4 +17,10 @@ public protocol TheftForecastProviding: Sendable {
     /// - Returns: The prediction for the matched neighbourhood.
     /// - Throws: `TheftForecastError` when the query cannot be matched or the model cannot run.
     func prediction(for query: String, patrolUnits: Int) async throws -> NeighbourhoodPrediction
+
+    /// Returns every neighbourhood's outline and risk, for the city-wide map.
+    ///
+    /// - Returns: All neighbourhoods, in the data's order.
+    /// - Throws: `TheftForecastError.resourcesUnavailable` if the model or data cannot be loaded.
+    func cityAreas() async throws -> [NeighbourhoodArea]
 }

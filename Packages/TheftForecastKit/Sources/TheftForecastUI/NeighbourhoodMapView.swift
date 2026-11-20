@@ -16,7 +16,7 @@ import TheftForecastInterface
 struct NeighbourhoodMapView: View {
     let prediction: NeighbourhoodPrediction
     /// Called with a neighbourhood's full name when its label is tapped.
-    let onSelect: (String) -> Void
+    let onSelect: @MainActor (String) -> Void
 
     var body: some View {
         Map(initialPosition: .region(fittingRegion), interactionModes: [.zoom]) {
@@ -34,13 +34,13 @@ struct NeighbourhoodMapView: View {
         .id(prediction.name)
     }
 
-    @MapContentBuilder
-    private func shapes(for area: NeighbourhoodArea, isSelected: Bool) -> some MapContent {
-        ForEach(Array(area.outlines.enumerated()), id: \.offset) { item in
-            MapPolygon(coordinates: item.element.map(\.location))
-                .foregroundStyle(area.riskLevel.tint.opacity(isSelected ? 0.6 : 0.4))
-                .stroke(isSelected ? Color.primary : area.riskLevel.tint, lineWidth: isSelected ? 3 : 1)
-        }
+    private func shapes(for area: NeighbourhoodArea, isSelected: Bool) -> AreaPolygons {
+        AreaPolygons(
+            area: area,
+            fill: area.riskLevel.tint.opacity(isSelected ? 0.6 : 0.4),
+            stroke: isSelected ? Color.primary : area.riskLevel.tint,
+            lineWidth: isSelected ? 3 : 1
+        )
     }
 
     @MapContentBuilder
@@ -74,46 +74,6 @@ struct NeighbourhoodMapView: View {
 
     private var fittingRegion: MKCoordinateRegion {
         let points: [Coordinate] = ([prediction.area] + prediction.borderingAreas).flatMap { $0.outlines.joined() }
-        let box: BoundingBox = BoundingBox(points)
-        return MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: box.midLatitude, longitude: box.midLongitude),
-            span: MKCoordinateSpan(latitudeDelta: box.latitudeSpan * 1.15, longitudeDelta: box.longitudeSpan * 1.15)
-        )
-    }
-}
-
-/// The smallest latitude/longitude box around a set of points.
-private struct BoundingBox {
-    let minLatitude: Double
-    let maxLatitude: Double
-    let minLongitude: Double
-    let maxLongitude: Double
-
-    init(_ points: [Coordinate]) {
-        precondition(!points.isEmpty, "a neighbourhood always has an outline")
-        minLatitude = points.map(\.latitude).min() ?? 0
-        maxLatitude = points.map(\.latitude).max() ?? 0
-        minLongitude = points.map(\.longitude).min() ?? 0
-        maxLongitude = points.map(\.longitude).max() ?? 0
-    }
-
-    var midLatitude: Double { (minLatitude + maxLatitude) / 2 }
-    var midLongitude: Double { (minLongitude + maxLongitude) / 2 }
-    var latitudeSpan: Double { maxLatitude - minLatitude }
-    var longitudeSpan: Double { maxLongitude - minLongitude }
-}
-
-private extension NeighbourhoodArea {
-    // Centre of the largest ring's box: cheap, and inside the shape for Toronto's mostly compact neighbourhoods.
-    var labelPoint: CLLocationCoordinate2D {
-        let largest: [Coordinate] = outlines.max { $0.count < $1.count } ?? []
-        let box: BoundingBox = BoundingBox(largest)
-        return CLLocationCoordinate2D(latitude: box.midLatitude, longitude: box.midLongitude)
-    }
-}
-
-private extension Coordinate {
-    var location: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return BoundingBox(points).region(margin: 1.15)
     }
 }

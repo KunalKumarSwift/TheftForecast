@@ -49,19 +49,6 @@ struct PredictionSummaryView: View {
     }
 }
 
-/// Icon + label for a risk level.
-private struct RiskBadge: View {
-    let level: RiskLevel
-
-    var body: some View {
-        Label {
-            Text(level.rawValue).fontWeight(.semibold)
-        } icon: {
-            Image(systemName: level.symbol).foregroundStyle(level.tint)
-        }
-    }
-}
-
 /// Arrow and percentage change from the last 12 months to the next 12.
 private struct TrendLabel: View {
     let previous: Double

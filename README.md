@@ -35,6 +35,10 @@ and scrolls through the results.
   neighbourhood that shares a border with it, shaded by risk level. Tap a bordering
   neighbourhood's name to open its forecast. Borders are worked out on the device from
   the boundary outlines (shared boundary vertices).
+- **Toronto risk map tab.** A second tab colours all 158 neighbourhoods by risk level on
+  one map, so the risky pockets are visible at a glance. A toggle fades low and moderate
+  areas to make high-risk clusters stand out. Tap any neighbourhood for its numbers and
+  an **Open forecast** button that jumps to its full forecast.
 - **Comparison with bordering neighbourhoods.** A bar chart of forecast thefts per 1,000
   residents for the neighbourhood and its neighbours, with the Toronto average marked.
 - **Chart.** The last 3 years of actual thefts (solid) followed by the forecast (dashed).

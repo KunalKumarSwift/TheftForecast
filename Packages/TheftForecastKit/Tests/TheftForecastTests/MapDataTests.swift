@@ -39,3 +39,19 @@ struct MapDataTests {
         #expect(prediction.cityPerThousandResidents > 0)
     }
 }
+
+@Suite("City map data")
+struct CityMapDataTests {
+    @Test("Every neighbourhood is on the city map, split into four risk quarters")
+    func cityAreas() async throws {
+        let forecaster: TheftForecaster = TheftForecaster(geocoder: StubGeocoder(point: nil))
+        let areas: [NeighbourhoodArea] = try await forecaster.cityAreas()
+
+        #expect(areas.count == 158)
+        #expect(Set(areas.map(\.name)).count == 158)
+        for level in RiskLevel.allCases {
+            let share: Double = Double(areas.filter { $0.riskLevel == level }.count) / Double(areas.count)
+            #expect(abs(share - 0.25) < 0.02, "\(level.rawValue) holds \(share) of neighbourhoods")
+        }
+    }
+}

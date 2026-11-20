@@ -1,26 +1,19 @@
 //  ForecastScreen.swift
 //
-//  The public SwiftUI screen: type a postal code or name, see the neighbourhood forecast.
+//  The "Forecast" tab: type a postal code or name, see the neighbourhood forecast.
 //
-//  This is the UI target's single public entry point. It receives the forecaster from
-//  the app (dependency injection), so it never imports the Core ML engine directly.
+//  Its view model is owned by `TheftForecastTabs`, so the city risk map can open a
+//  neighbourhood here.
 
 import SwiftUI
 import TheftForecastInterface
 
 /// Search screen showing the auto-theft forecast for a Toronto neighbourhood.
-public struct ForecastScreen: View {
-    @State private var viewModel: ForecastViewModel
+struct ForecastScreen: View {
+    @Bindable var viewModel: ForecastViewModel
     @FocusState private var isTyping: Bool
 
-    /// Creates the screen.
-    ///
-    /// - Parameter forecaster: Produces predictions (the app passes `TheftForecaster.live()`).
-    public init(forecaster: any TheftForecastProviding) {
-        _viewModel = State(initialValue: ForecastViewModel(forecaster: forecaster))
-    }
-
-    public var body: some View {
+    var body: some View {
         NavigationStack {
             Form {
                 searchSection
@@ -75,7 +68,7 @@ extension ForecastScreen {
     @ViewBuilder
     private func mapSection(for prediction: NeighbourhoodPrediction) -> some View {
         Section {
-            NeighbourhoodMapView(prediction: prediction, onSelect: showNeighbourhood)
+            NeighbourhoodMapView(prediction: prediction, onSelect: { showNeighbourhood($0) })
                 .listRowInsets(EdgeInsets())
             RiskLegendView()
             NeighbourComparisonChart(prediction: prediction)

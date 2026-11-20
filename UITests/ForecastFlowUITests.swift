@@ -36,6 +36,19 @@ final class ForecastFlowUITests: XCTestCase {
         attachScreenshot(of: app, named: "4-patrol-plan")
     }
 
+    /// Opens the city risk map tab and checks every neighbourhood loads.
+    @MainActor
+    func testRiskMapTab() {
+        let app: XCUIApplication = XCUIApplication()
+        app.launch()
+
+        let tab: XCUIElement = app.tabBars.buttons["Risk map"]
+        XCTAssertTrue(tab.waitForExistence(timeout: 10))
+        tab.tap()
+        XCTAssertTrue(app.staticTexts["Tap a neighbourhood to see its numbers"].waitForExistence(timeout: 30))
+        attachScreenshot(of: app, named: "5-risk-map")
+    }
+
     private func scrollUntilVisible(_ app: XCUIApplication, header: String) {
         let element: XCUIElement = app.staticTexts.matching(
             NSPredicate(format: "label ==[c] %@", header)

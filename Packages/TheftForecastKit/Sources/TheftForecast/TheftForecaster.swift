@@ -42,6 +42,15 @@ public actor TheftForecaster: TheftForecastProviding {
         return current.prediction(hood: match.index, how: match.how, patrolUnits: patrolUnits)
     }
 
+    /// Returns every neighbourhood's outline and risk, for the city-wide map.
+    ///
+    /// - Returns: All neighbourhoods, in the data's order.
+    /// - Throws: `TheftForecastError.resourcesUnavailable` if the model or data cannot be loaded.
+    public func cityAreas() async throws -> [NeighbourhoodArea] {
+        let current: ForecastSnapshot = try await loadedSnapshot()
+        return current.data.neighbourhoods.indices.map(current.area(hood:))
+    }
+
     /// The 24-month forecast for every neighbourhood, keyed by name.
     ///
     /// - Returns: Forecast thefts per month for each neighbourhood, first month first.
