@@ -53,4 +53,12 @@ final class ForecastViewModel {
             state = .failed(error.localizedDescription)
         }
     }
+
+    /// Shows the forecast for a neighbourhood picked on the map.
+    ///
+    /// - Parameter name: The neighbourhood's full name, e.g. `Milliken (130)`.
+    func show(neighbourhood name: String) async {
+        query = name
+        await search()
+    }
 }

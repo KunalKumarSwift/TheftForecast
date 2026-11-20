@@ -8,7 +8,8 @@ into a location.
 
 ## Screenshots
 
-These screenshots come from the `ForecastFlowUITests` UI test (iPhone 17 Pro Max
+These screenshots predate the map and charts added below; rerun the UI test to refresh
+them. They come from the `ForecastFlowUITests` UI test (iPhone 17 Pro Max
 simulator, test passed). The test searches for **M6A 2T9** (Yorkdale Shopping Centre)
 and scrolls through the results.
 
@@ -27,9 +28,19 @@ and scrolls through the results.
   (the neighbourhood's quartile), computed the same way as the notebook's pandas code.
 - **Neighbourhood profile.** 2021 census figures such as residents, median household
   income and distance to Pearson airport.
+- **Risk meter and trend.** A bar split into the four risk levels shows where the
+  neighbourhood sits among all 158, and an arrow shows the forecast change against the
+  last 12 months.
+- **Neighbourhood map.** Apple Maps shows the neighbourhood's boundary and every
+  neighbourhood that shares a border with it, shaded by risk level. Tap a bordering
+  neighbourhood's name to open its forecast. Borders are worked out on the device from
+  the boundary outlines (shared boundary vertices).
+- **Comparison with bordering neighbourhoods.** A bar chart of forecast thefts per 1,000
+  residents for the neighbourhood and its neighbours, with the Toronto average marked.
 - **Chart.** The last 3 years of actual thefts (solid) followed by the forecast (dashed).
 - **Patrol plan.** Splits the city's daily patrol units (adjustable, default 200) by each
-  neighbourhood's share of forecast thefts, then by night, day and evening shifts.
+  neighbourhood's share of forecast thefts, then by night, day and evening shifts, shown
+  as a stacked bar chart above the monthly table.
 
 ## Requirements
 

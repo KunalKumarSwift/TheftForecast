@@ -91,6 +91,12 @@ public struct NeighbourhoodPrediction: Sendable, Equatable {
     public let forecast: [MonthlyThefts]
     /// Suggested patrol units for the next 6 months.
     public let patrolPlan: [PatrolPlanMonth]
+    /// This neighbourhood's outline and headline numbers, for the map.
+    public let area: NeighbourhoodArea
+    /// Neighbourhoods sharing a border with this one, most thefts per resident first.
+    public let borderingAreas: [NeighbourhoodArea]
+    /// Toronto-wide next-12-month forecast per 1,000 residents.
+    public let cityPerThousandResidents: Double
 
     /// Creates a prediction. Values are produced by the forecasting engine.
     ///
@@ -109,11 +115,15 @@ public struct NeighbourhoodPrediction: Sendable, Equatable {
     ///   - history: Recent actual thefts.
     ///   - forecast: 24-month forecast.
     ///   - patrolPlan: 6-month patrol plan.
+    ///   - area: Outline and headline numbers for the map.
+    ///   - borderingAreas: Neighbourhoods sharing a border.
+    ///   - cityPerThousandResidents: Toronto-wide forecast per 1,000 residents.
     public init(
         name: String, matchDescription: String, lastTwelveMonths: Int, nextTwelveMonths: Double,
         monthsThirteenToTwentyFour: Double, perThousandResidents: Double, rankByTotal: Int, rankPerResident: Int,
         neighbourhoodCount: Int, riskLevel: RiskLevel, profile: NeighbourhoodProfile,
-        history: [MonthlyThefts], forecast: [MonthlyThefts], patrolPlan: [PatrolPlanMonth]
+        history: [MonthlyThefts], forecast: [MonthlyThefts], patrolPlan: [PatrolPlanMonth],
+        area: NeighbourhoodArea, borderingAreas: [NeighbourhoodArea], cityPerThousandResidents: Double
     ) {
         self.name = name
         self.matchDescription = matchDescription
@@ -129,5 +139,8 @@ public struct NeighbourhoodPrediction: Sendable, Equatable {
         self.history = history
         self.forecast = forecast
         self.patrolPlan = patrolPlan
+        self.area = area
+        self.borderingAreas = borderingAreas
+        self.cityPerThousandResidents = cityPerThousandResidents
     }
 }

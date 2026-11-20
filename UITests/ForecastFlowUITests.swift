@@ -28,11 +28,23 @@ final class ForecastFlowUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Yorkdale-Glen Park (31)"].waitForExistence(timeout: 30))
         attachScreenshot(of: app, named: "1-summary")
 
-        app.swipeUp()
-        attachScreenshot(of: app, named: "2-chart")
-        app.swipeUp()
-        XCTAssertTrue(app.staticTexts["Patrol plan"].exists || app.staticTexts["PATROL PLAN"].exists)
-        attachScreenshot(of: app, named: "3-patrol-plan")
+        scrollUntilVisible(app, header: "Map and bordering neighbourhoods")
+        attachScreenshot(of: app, named: "2-map")
+        scrollUntilVisible(app, header: "Thefts per month")
+        attachScreenshot(of: app, named: "3-chart")
+        scrollUntilVisible(app, header: "Patrol plan")
+        attachScreenshot(of: app, named: "4-patrol-plan")
+    }
+
+    private func scrollUntilVisible(_ app: XCUIApplication, header: String) {
+        let element: XCUIElement = app.staticTexts.matching(
+            NSPredicate(format: "label ==[c] %@", header)
+        ).firstMatch
+        // Form sections are lazy, so a header only exists once it is near the screen.
+        for _ in 0..<8 where !(element.exists && element.isHittable) {
+            app.swipeUp()
+        }
+        XCTAssertTrue(element.exists, "\(header) section not found")
     }
 
     private func attachScreenshot(of app: XCUIApplication, named name: String) {

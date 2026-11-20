@@ -14,6 +14,7 @@ struct PatrolPlanView: View {
 
     var body: some View {
         Section {
+            PatrolShiftChart(plan: plan)
             ForEach(plan) { month in
                 VStack(alignment: .leading, spacing: 6) {
                     HStack {

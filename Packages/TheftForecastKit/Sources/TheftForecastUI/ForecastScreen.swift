@@ -64,9 +64,30 @@ public struct ForecastScreen: View {
             Section { Label(message, systemImage: "exclamationmark.triangle").foregroundStyle(.red) }
         case .loaded(let prediction):
             PredictionSummaryView(prediction: prediction)
+            mapSection(for: prediction)
             Section("Thefts per month") { TheftChartView(prediction: prediction) }
             PatrolPlanView(plan: prediction.patrolPlan)
         }
+    }
+}
+
+extension ForecastScreen {
+    @ViewBuilder
+    private func mapSection(for prediction: NeighbourhoodPrediction) -> some View {
+        Section {
+            NeighbourhoodMapView(prediction: prediction, onSelect: showNeighbourhood)
+                .listRowInsets(EdgeInsets())
+            RiskLegendView()
+            NeighbourComparisonChart(prediction: prediction)
+        } header: {
+            Text("Map and bordering neighbourhoods")
+        } footer: {
+            Text("Shading shows each neighbourhood's risk level. Tap a name on the map to see its forecast.")
+        }
+    }
+
+    private func showNeighbourhood(_ name: String) {
+        Task { await viewModel.show(neighbourhood: name) }
     }
 }
 

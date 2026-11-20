@@ -18,6 +18,8 @@ struct ForecastSnapshot {
     let forecast: [[Double]]
     let rankings: Rankings
     let lastMonth: YearMonth
+    /// `borders[hood]` lists the neighbourhoods sharing a border with `hood`.
+    let borders: [[Int]]
 
     /// Runs the forecast for every neighbourhood.
     ///
@@ -31,6 +33,7 @@ struct ForecastSnapshot {
         forecast = try RecursiveForecaster.forecast(data: data, model: model, months: Self.forecastMonths)
         let population: [Double] = data.neighbourhoods.map { data.characteristic("population_k", of: $0) }
         rankings = Rankings(forecast: forecast, populationThousands: population)
+        borders = BorderFinder.borders(of: data.neighbourhoods)
     }
 
     /// Builds the full answer for one neighbourhood.
@@ -72,7 +75,10 @@ struct ForecastSnapshot {
             patrolPlan: PatrolPlanner.plan(
                 hood: hood, forecast: forecast, firstMonth: lastMonth.adding(months: 1),
                 units: patrolUnits, data: data
-            )
+            ),
+            area: area(hood: hood),
+            borderingAreas: borderingAreas(hood: hood),
+            cityPerThousandResidents: cityPerThousandResidents
         )
     }
 }
