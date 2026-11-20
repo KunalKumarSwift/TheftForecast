@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54C44E79DD829CF0E40DE6D7 /* TheftForecast in Frameworks */ = {isa = PBXBuildFile; productRef = F407357CF5794330EA19A566 /* TheftForecast */; };
+		BD5F7C3E799918B3986C18B4 /* TheftForecastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8A28A73A2987154440B16D7F /* TheftForecastUI */; };
+		E6D4D00B168E187B17AA4E14 /* TheftForecastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52A1C592DC57B7C1A6346FE /* TheftForecastApp.swift */; };
+		ED39B02F8C6BA9E759FBD447 /* ForecastFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67383ECB3DAD6C4D10A71093 /* ForecastFlowUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78C3CBC17DF7EED670C9CF58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33DC98FBF919D45244C27326 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DB5571DEE3E6EEFE39942DB;
+			remoteInfo = TheftForecastApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BFDCBB9A2B75890AAC55282 /* TheftForecastUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TheftForecastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66776834BD7145D7231CCFC9 /* TheftForecastKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TheftForecastKit; path = Packages/TheftForecastKit; sourceTree = SOURCE_ROOT; };
+		67383ECB3DAD6C4D10A71093 /* ForecastFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastFlowUITests.swift; sourceTree = "<group>"; };
+		7D2EBD0F5D09B97D73527602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9C6B44CADFB9E702101F659E /* TheftForecastApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheftForecastApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52A1C592DC57B7C1A6346FE /* TheftForecastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheftForecastApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4683E396A0C870CD855CD23D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C44E79DD829CF0E40DE6D7 /* TheftForecast in Frameworks */,
+				BD5F7C3E799918B3986C18B4 /* TheftForecastUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70350144839670AF015AD3EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C6B44CADFB9E702101F659E /* TheftForecastApp.app */,
+				4BFDCBB9A2B75890AAC55282 /* TheftForecastUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BB955D33BF29B640649B655 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				66776834BD7145D7231CCFC9 /* TheftForecastKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		994C8C0FFD2C8DBF60A75A28 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				67383ECB3DAD6C4D10A71093 /* ForecastFlowUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		C71005A240C9C6089AA4A29C = {
+			isa = PBXGroup;
+			children = (
+				F3C8F5B45557EE21F198494A /* App */,
+				7BB955D33BF29B640649B655 /* Packages */,
+				994C8C0FFD2C8DBF60A75A28 /* UITests */,
+				70350144839670AF015AD3EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3C8F5B45557EE21F198494A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7D2EBD0F5D09B97D73527602 /* Info.plist */,
+				A52A1C592DC57B7C1A6346FE /* TheftForecastApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DB5571DEE3E6EEFE39942DB /* TheftForecastApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA4F55CA7CABE0E623614428 /* Build configuration list for PBXNativeTarget "TheftForecastApp" */;
+			buildPhases = (
+				35F7520E56BD356FE1790B5C /* Sources */,
+				4683E396A0C870CD855CD23D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheftForecastApp;
+			packageProductDependencies = (
+				F407357CF5794330EA19A566 /* TheftForecast */,
+				8A28A73A2987154440B16D7F /* TheftForecastUI */,
+			);
+			productName = TheftForecastApp;
+			productReference = 9C6B44CADFB9E702101F659E /* TheftForecastApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C297E6A4608E09534B5B1B5D /* TheftForecastUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A79CDF9F3CBCB3C31EA21668 /* Build configuration list for PBXNativeTarget "TheftForecastUITests" */;
+			buildPhases = (
+				8199F24CF8B9CF56D53EB5BA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBB77051EACAEAC09B51216E /* PBXTargetDependency */,
+			);
+			name = TheftForecastUITests;
+			packageProductDependencies = (
+			);
+			productName = TheftForecastUITests;
+			productReference = 4BFDCBB9A2B75890AAC55282 /* TheftForecastUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33DC98FBF919D45244C27326 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3DB5571DEE3E6EEFE39942DB = {
+						ProvisioningStyle = Automatic;
+					};
+					C297E6A4608E09534B5B1B5D = {
+						TestTargetID = 3DB5571DEE3E6EEFE39942DB;
+					};
+				};
+			};
+			buildConfigurationList = 1D96987B80798A01DE3259AC /* Build configuration list for PBXProject "TheftForecast" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C71005A240C9C6089AA4A29C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				75363DC6AB4A415D9579D38B /* XCLocalSwiftPackageReference "Packages/TheftForecastKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 70350144839670AF015AD3EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DB5571DEE3E6EEFE39942DB /* TheftForecastApp */,
+				C297E6A4608E09534B5B1B5D /* TheftForecastUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		35F7520E56BD356FE1790B5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6D4D00B168E187B17AA4E14 /* TheftForecastApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8199F24CF8B9CF56D53EB5BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED39B02F8C6BA9E759FBD447 /* ForecastFlowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBB77051EACAEAC09B51216E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DB5571DEE3E6EEFE39942DB /* TheftForecastApp */;
+			targetProxy = 78C3CBC17DF7EED670C9CF58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49BBEF54F2CFCA3404B473D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mba563.TheftForecastUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TheftForecastApp;
+			};
+			name = Debug;
+		};
+		4AD068799F9074CB1CC20492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mba563.TheftForecastUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TheftForecastApp;
+			};
+			name = Release;
+		};
+		6809456A1ACC3E8E08080783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		69E1992ED0720142EBE5B25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3AKEMCF7CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mba563.TheftForecast;
+				PRODUCT_NAME = TheftForecastApp;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		931E56A2F03963F6C4FD4549 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3AKEMCF7CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mba563.TheftForecast;
+				PRODUCT_NAME = TheftForecastApp;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF7B9D65895DE1A2616AEE70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D96987B80798A01DE3259AC /* Build configuration list for PBXProject "TheftForecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6809456A1ACC3E8E08080783 /* Debug */,
+				EF7B9D65895DE1A2616AEE70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A79CDF9F3CBCB3C31EA21668 /* Build configuration list for PBXNativeTarget "TheftForecastUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49BBEF54F2CFCA3404B473D7 /* Debug */,
+				4AD068799F9074CB1CC20492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AA4F55CA7CABE0E623614428 /* Build configuration list for PBXNativeTarget "TheftForecastApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E56A2F03963F6C4FD4549 /* Debug */,
+				69E1992ED0720142EBE5B25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		75363DC6AB4A415D9579D38B /* XCLocalSwiftPackageReference "Packages/TheftForecastKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TheftForecastKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A28A73A2987154440B16D7F /* TheftForecastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TheftForecastUI;
+		};
+		F407357CF5794330EA19A566 /* TheftForecast */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TheftForecast;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 33DC98FBF919D45244C27326 /* Project object */;
+}

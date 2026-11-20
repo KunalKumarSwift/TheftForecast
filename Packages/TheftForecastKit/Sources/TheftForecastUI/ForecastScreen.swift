@@ -1,0 +1,83 @@
+//  ForecastScreen.swift
+//
+//  The public SwiftUI screen: type a postal code or name, see the neighbourhood forecast.
+//
+//  This is the UI target's single public entry point. It receives the forecaster from
+//  the app (dependency injection), so it never imports the Core ML engine directly.
+
+import SwiftUI
+import TheftForecastInterface
+
+/// Search screen showing the auto-theft forecast for a Toronto neighbourhood.
+public struct ForecastScreen: View {
+    @State private var viewModel: ForecastViewModel
+    @FocusState private var isTyping: Bool
+
+    /// Creates the screen.
+    ///
+    /// - Parameter forecaster: Produces predictions (the app passes `TheftForecaster.live()`).
+    public init(forecaster: any TheftForecastProviding) {
+        _viewModel = State(initialValue: ForecastViewModel(forecaster: forecaster))
+    }
+
+    public var body: some View {
+        NavigationStack {
+            Form {
+                searchSection
+                resultSection
+            }
+            .scrollDismissesKeyboard(.immediately)
+            .navigationTitle("Auto Theft Forecast")
+        }
+    }
+
+    private var searchSection: some View {
+        Section {
+            TextField("Postal code or neighbourhood", text: $viewModel.query)
+                .postalCodeKeyboard()
+                .autocorrectionDisabled()
+                .focused($isTyping)
+                .onSubmit(runSearch)
+            Stepper("Patrol units in the city: \(viewModel.patrolUnits)", value: $viewModel.patrolUnits, in: 10...1000, step: 10)
+            Button(action: runSearch) {
+                Label("Show forecast", systemImage: "magnifyingglass")
+            }
+            .disabled(!viewModel.canSearch)
+        } footer: {
+            Text("For example M5V 2T6, M6A or Yorkdale. The postal code is only used to find your neighbourhood.")
+        }
+    }
+
+    private func runSearch() {
+        isTyping = false  // hide the keyboard so the results are visible
+        Task { await viewModel.search() }
+    }
+
+    @ViewBuilder
+    private var resultSection: some View {
+        switch viewModel.state {
+        case .idle:
+            EmptyView()
+        case .loading:
+            Section { ProgressView("Forecasting with Core ML…") }
+        case .failed(let message):
+            Section { Label(message, systemImage: "exclamationmark.triangle").foregroundStyle(.red) }
+        case .loaded(let prediction):
+            PredictionSummaryView(prediction: prediction)
+            Section("Thefts per month") { TheftChartView(prediction: prediction) }
+            PatrolPlanView(plan: prediction.patrolPlan)
+        }
+    }
+}
+
+private extension View {
+    // Capital letters and a Search key on iPhone; macOS (used for `swift test`) has no such keyboard options.
+    @ViewBuilder
+    func postalCodeKeyboard() -> some View {
+        #if os(iOS)
+        self.textInputAutocapitalization(.characters).submitLabel(.search)
+        #else
+        self
+        #endif
+    }
+}
